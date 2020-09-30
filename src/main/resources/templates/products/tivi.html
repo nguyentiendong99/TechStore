@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+<head>
+    <div th:replace="styles/head :: head"></div>
+</head>
+<body class="full-wrapper">
+
+<header>
+    <!-- Header Start -->
+    <div th:replace="styles/header :: navigation"></div>
+    <!-- Header End -->
+</header>
+<!-- header end -->
+<main>
+    <!-- breadcrumb Start-->
+    <div class="page-notification">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- listing Area Start -->
+    <div class="category-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-lg-8 col-md-10">
+                    <div class="section-tittle mb-50">
+                        <h2>Shop with us</h2>
+                        <p>Browse from [[${totalItems}]] latest items</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!--? Left content -->
+                <div class="col-xl-3 col-lg-3 col-md-4 ">
+                    <!-- Job Category Listing start -->
+                    <div class="category-listing mb-50">
+                        <!-- single one -->
+                        <div class="single-listing">
+                            <!-- Select City items start -->
+                            <div class="select-job-items2">
+                                <select name="select2">
+                                    <option value="">Category</option>
+                                    <option value="">Shat</option>
+                                    <option value="">T-shart</option>
+                                    <option value="">Pent</option>
+                                    <option value="">Dress</option>
+                                </select>
+                            </div>
+                            <!--  Select City items End-->
+                            <!-- Select State items start -->
+                            <div class="select-job-items2">
+                                <select name="select3">
+                                    <option value="">Type</option>
+                                    <option value="">LG</option>
+                                    <option value="">LG</option>
+                                    <option value="">XL</option>
+                                    <option value="">XXL</option>
+                                </select>
+                            </div>
+                            <!--  Select State items End-->
+                            <!-- Select km items start -->
+                            <div class="select-job-items2">
+                                <select name="select4">
+                                    <option value="">Size</option>
+                                    <option value="">1.2ft</option>
+                                    <option value="">2.5ft</option>
+                                    <option value="">5.2ft</option>
+                                    <option value="">3.2ft</option>
+                                </select>
+                            </div>
+                            <!--  Select km items End-->
+                            <!-- Select km items start -->
+                            <div class="select-job-items2">
+                                <select name="select5">
+                                    <option value="">Color</option>
+                                    <option value="">Whit</option>
+                                    <option value="">Green</option>
+                                    <option value="">Blue</option>
+                                    <option value="">Sky Blue</option>
+                                    <option value="">Gray</option>
+                                </select>
+                            </div>
+                            <!--  Select km items End-->
+                            <!-- Select km items start -->
+                            <div class="select-job-items2">
+                                <select name="select6">
+                                    <option value="">Price range</option>
+                                    <option value="">$10 to $20</option>
+                                    <option value="">$20 to $30</option>
+                                    <option value="">$50 to $80</option>
+                                    <option value="">$100 to $120</option>
+                                    <option value="">$200 to $300</option>
+                                    <option value="">$500 to $600</option>
+                                </select>
+                            </div>
+                            <!--  Select km items End-->
+                        </div>
+                    </div>
+                    <!-- Job Category Listing End -->
+                </div>
+                <!--?  Right content -->
+                <div class="col-xl-9 col-lg-9 col-md-8 ">
+                    <div class="new-arrival">
+                        <div class="container">
+                            <div class="row">
+                                <div th:each="item : ${tiviProducts}" class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                                    <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s"
+                                         data-wow-delay=".1s">
+                                        <div class="popular-img">
+                                            <img th:src="@{'../assets/img/gallery/'+${item.image}}" alt="">
+                                            <div class="favorit-items">
+                                                <!-- <span class="flaticon-heart"></span> -->
+                                                <img src="../assets/img/gallery/favorit-card.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="popular-caption">
+                                            <h3><a href="product_details.html" th:text="${item.name}"></a></h3>
+                                            <div class="rating mb-10">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <span th:text="${item.price}"></span>
+                                            <h4>
+                                                <a class="shopBtn" th:href="@{'/AddCart/' + ${item.id}}" title="add to cart">
+                                                    Add to cart </a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center ; color: black" class="clearfix">
+                        <a style="color: black" th:if="${currentPage > 1}" th:href="@{/pageTivi/1}">First</a>
+                        <span style="color: black" th:unless="${currentPage > 1}">First</span>
+                        &nbsp;&nbsp;
+                        <a style="color: black" th:if="${currentPage > 1}" th:href="@{'/pageTivi/' + ${currentPage - 1}}">Previous</a>
+                        <span style="color: black" th:unless="${currentPage > 1}">Previous</span>
+                        &nbsp;&nbsp;
+                        <span style="color: black" th:each="i : ${#numbers.sequence(1 , totalPages)}">
+                    <a style="color: black" th:if="${i != currentPage}" th:href="@{'/pageTivi/' + ${i}}">[[${i}]]</a>
+                    <span style="color: black" th:unless="${i != currentPage}">[[${i}]]</span> &nbsp;&nbsp;
+                    </span>
+                        &nbsp;
+                        <a style="color: black" th:if="${currentPage < totalPages}" th:href="@{'/pageTivi/' + ${currentPage + 1}}">Next</a>
+                        <span th:unless="${currentPage < totalPages}">Next</span>
+                        &nbsp;
+                        <a style="color: black" th:if="${currentPage < totalPages}" th:href="@{'/pageTivi/' + ${totalPages}}">Last</a>
+                        <span style="color: black" th:unless="${currentPage < totalPages}">Last</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- listing-area Area End -->
+    <!--? Popular Items Start -->
+    <div th:replace="styles/popularitems :: popular"></div>
+    <!-- Popular Items End -->
+    <!--? Services Area Start -->
+    <div th:replace="styles/serviceAreas :: service"></div>
+    <!--? Services Area End -->
+</main>
+
+<footer>
+    <!-- Footer Start-->
+    <div th:replace="styles/footer_start :: footer-start"></div>
+    <!-- footer-bottom area -->
+    <div th:replace="styles/footer_end :: footer-end"></div>
+    <!-- Footer End-->
+</footer>
+<!--? Search model Begin -->
+<div th:replace="styles/search :: search"></div>
+<!-- Search model end -->
+<!-- Scroll Up -->
+<div id="back-top">
+    <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+</div>
+
+<!-- JS here -->
+<!-- Jquery, Popper, Bootstrap -->
+<script src="../assets/js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="../assets/js/popper.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+
+<!-- Slick-slider , Owl-Carousel ,slick-nav -->
+<script src="../assets/js/owl.carousel.min.js"></script>
+<script src="../assets/js/slick.min.js"></script>
+<script src="../assets/js/jquery.slicknav.min.js"></script>
+
+<!-- One Page, Animated-HeadLin, Date Picker -->
+<script src="../assets/js/wow.min.js"></script>
+<script src="../assets/js/animated.headline.js"></script>
+<script src="../assets/js/jquery.magnific-popup.js"></script>
+<script src="../assets/js/gijgo.min.js"></script>
+
+<!-- Nice-select, sticky,Progress -->
+<script src="../assets/js/jquery.nice-select.min.js"></script>
+<script src="../assets/js/jquery.sticky.js"></script>
+<script src="../assets/js/jquery.barfiller.js"></script>
+
+<!-- counter , waypoint,Hover Direction -->
+<script src="../assets/js/jquery.counterup.min.js"></script>
+<script src="../assets/js/waypoints.min.js"></script>
+<script src="../assets/js/jquery.countdown.min.js"></script>
+<script src="../assets/js/hover-direction-snake.min.js"></script>
+
+<!-- contact js -->
+<script src="../assets/js/contact.js"></script>
+<script src="../assets/js/jquery.form.js"></script>
+<script src="../assets/js/jquery.validate.min.js"></script>
+<script src="../assets/js/mail-script.js"></script>
+<script src="../assets/js/jquery.ajaxchimp.min.js"></script>
+
+<!-- Jquery Plugins, main Jquery -->
+<script src="../assets/js/plugins.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</body>
+</html>

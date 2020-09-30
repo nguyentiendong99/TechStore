@@ -1,0 +1,46 @@
+spring:
+  datasource:
+    password: dongnguyen19069999
+    url: jdbc:mysql://localhost:3306/project
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: none
+  mail:
+    host: smtp.gmail.com
+    password: 0973720277
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+          enable: true
+    username: dongptit1999@gmail.com
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: 78a3987891d71f0724a8
+            client-secret: 427cd212ed13fc7ecda827213f3a57babfd2691b
+            scope:
+              - email
+              - public_profile
+          facebook:
+            client-id: 3326241490800357
+            client-secret: 4665ed2cbe3b638a17d63541a1afe96a
+            scope:
+              - email
+              - public_profile
+          google:
+            client-id: 1037999675483-k8617sirii4ockdtlcm6sk0q3um1e336.apps.googleusercontent.com
+            client-secret: 6SxqQl_ob_egdFG1PtLwQb4J
+            scope:
+              - email
+              - profile
+
+
+
+
+

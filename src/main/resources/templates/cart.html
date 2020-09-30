@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+<head>
+    <div th:replace="styles/head :: head"></div>
+</head>
+<body class="full-wrapper">
+<!-- ? Preloader Start -->
+<div th:replace="styles/preload :: preload"></div>
+<!-- Preloader Start-->
+<header>
+    <!-- Header Start -->
+    <div th:replace="styles/header :: navigation"></div>
+    <!-- Header End -->
+</header>
+<!-- header end -->
+<main>
+    <!--
+Body Section
+-->
+    <div align="center">
+        <div class="span12">
+            <div class="well well-small">
+                <h1>Check Out <small class="pull-right"> [[${quantity}]] Items are in the cart </small></h1>
+                <hr class="soften"/>
+
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Name Product</th>
+                        <th>Unit price</th>
+                        <th>Quantity</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item : ${session.cart}">
+                        <td><img style="width: 100px; height: 100px" th:src="@{'/assets/img/gallery/' + ${item.value.product.image}}"  alt=""></td>
+                        <td th:text="${item.value.product.name}"></td>
+                        <td th:text="${item.value.product.price}"></td>
+                        <td>
+                            <input class="span1" name="quantity" min="1" max="100" style="max-width:34px"
+                                   placeholder="1" th:value="${item.value.quantity}" size="16" type="number">
+                        </td>
+                        <td>
+                            <a class="edit-cart" style="color: black">
+                                Edit
+                            </a>
+                        </td>
+                        <td>
+                            <a style="color: black" th:href="@{'/DeleteCart/'+ ${item.key}}" type="button">
+                                Delete
+                            </a>
+                        </td>
+                        <td th:text="${item.value.totalPrice}"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="alignR">Total products:	</td>
+                        <td>$ [[${Price}]]</td>
+                    </tr>
+                    </tbody>
+                </table><br/>
+                <table class="table table-bordered">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <a style="float: left" th:href="@{/}" class="shopBtn btn-large"><span class="icon-arrow-left"></span> Continue Shopping </a>
+                            <a style="float: right" th:href="@{/checkout}" class="shopBtn btn-large pull-right">Checkout <span class="icon-arrow-right"></span></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                 </table>
+             </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <!-- Footer Start-->
+    <div th:replace="styles/footer_start :: footer-start"></div>
+    <!-- footer-bottom area -->
+    <div th:replace="styles/footer_end :: footer-end"></div>
+    <!-- Footer End-->
+</footer>
+<!--? Search model Begin -->
+<div th:replace="styles/search :: search"></div>
+<!-- Search model end -->
+<!-- Scroll Up -->
+<div id="back-top">
+    <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- JS here -->
+<!-- Jquery, Popper, Bootstrap -->
+<script src="../assets/js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="../assets/js/popper.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+
+<!-- Slick-slider , Owl-Carousel ,slick-nav -->
+<script src="../assets/js/owl.carousel.min.js"></script>
+<script src="../assets/js/slick.min.js"></script>
+<script src="../assets/js/jquery.slicknav.min.js"></script>
+
+<!-- One Page, Animated-HeadLin, Date Picker -->
+<script src="../assets/js/wow.min.js"></script>
+<script src="../assets/js/animated.headline.js"></script>
+<script src="../assets/js/jquery.magnific-popup.js"></script>
+<script src="../assets/js/gijgo.min.js"></script>
+
+<!-- Nice-select, sticky,Progress -->
+<script src="../assets/js/jquery.nice-select.min.js"></script>
+<script src="../assets/js/jquery.sticky.js"></script>
+<script src="../assets/js/jquery.barfiller.js"></script>
+
+<!-- counter , waypoint,Hover Direction -->
+<script src="../assets/js/jquery.counterup.min.js"></script>
+<script src="../assets/js/waypoints.min.js"></script>
+<script src="../assets/js/jquery.countdown.min.js"></script>
+<script src="../assets/js/hover-direction-snake.min.js"></script>
+
+<!-- contact js -->
+<script src="../assets/js/contact.js"></script>
+<script src="../assets/js/jquery.form.js"></script>
+<script src="../assets/js/jquery.validate.min.js"></script>
+<script src="../assets/js/mail-script.js"></script>
+<script src="../assets/js/jquery.ajaxchimp.min.js"></script>
+
+<!-- Jquery Plugins, main Jquery -->
+<script src="../assets/js/plugins.js"></script>
+<script src="../assets/js/main.js"></script>
+
+<!--<script>-->
+<!--    $(".edit-cart").on("click" , function (){-->
+<!--        var id = $(this).data("th:id");-->
+<!--        var quanty = $("#quanty-cart-" + id ).val();-->
+<!--        alert(quanty);-->
+<!--    })-->
+<!--</script>-->
+</body>
+</html>

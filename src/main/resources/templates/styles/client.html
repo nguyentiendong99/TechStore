@@ -1,0 +1,15 @@
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+
+<div th:fragment="navigation">
+    <section class="our_client">
+        <hr class="soften"/>
+        <div class="row">
+            <div th:each="item : ${category}" class="span2">
+                <a href="#"><img alt="" th:src="@{'/assets/img/'+${item.image}}"></a>
+            </div>
+        </div>
+    </section>
+</div>
+

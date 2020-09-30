@@ -1,0 +1,26 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+
+
+<div th:fragment="popular">
+    <div class="popular-items pt-50">
+        <div class="container-fluid">
+            <div class="row">
+                <div th:each="item : ${category}" class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s"
+                         data-wow-delay=".1s">
+                        <div class="popular-img">
+                            <img th:src="@{'/assets/img/gallery/'+${item.image}}" alt="">
+                            <div class="img-cap">
+                                <span th:text="${item.name}"></span>
+                            </div>
+                            <div class="favorit-items">
+                                <a th:href="@{'/'+${item.name}}" class="btn">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

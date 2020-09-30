@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+<head>
+    <div th:replace="styles/head :: head"></div>
+</head>
+<body class="full-wrapper">
+<!-- ? Preloader Start -->
+<div th:replace="styles/preload :: preload"></div>
+<!-- Preloader Start-->
+<header>
+    <!-- Header Start -->
+    <div th:replace="styles/header :: navigation"></div>
+    <!-- Header End -->
+</header>
+<!-- header end -->
+<main>
+    <!--
+Body Section
+--><div align="center">
+    <div class="span9">
+        <div class="well well-small">
+            <form th:action="@{/checkout}" method="post" th:object="${bills}" class="form-horizontal">
+                <h3>Your Billing Details</h3>
+                <div class="control-group">
+                    <label class="control-label">ID<sup>*</sup></label>
+                    <div class="controls">
+                        <input type="text" placeholder="Name" th:field="*{id_user}"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Name<sup>*</sup></label>
+                    <div class="controls">
+                        <input type="text" placeholder="Email" th:field="*{name}"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Phone<sup>*</sup></label>
+                    <div class="controls">
+                        <input type="text" placeholder="Email" th:field="*{phone}"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Address</label>
+                    <div class="controls">
+                        <input th:field="*{address}" type="text" placeholder="Address" class="span3"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Note</label>
+                    <div class="controls">
+                        <input th:field="*{note}" type="text" placeholder="Note" class="span3"/>
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <div class="controls">
+                        <input class="shopBtn exclusive" type="submit" name="submitAccount" value="PayMent">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    <br>
+</main>
+<footer>
+    <!-- Footer Start-->
+    <div th:replace="styles/footer_start :: footer-start"></div>
+    <!-- footer-bottom area -->
+    <div th:replace="styles/footer_end :: footer-end"></div>
+    <!-- Footer End-->
+</footer>
+<!--? Search model Begin -->
+<div th:replace="styles/search :: search"></div>
+<!-- Search model end -->
+<!-- Scroll Up -->
+<div id="back-top">
+    <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+</div>
+
+<!-- JS here -->
+<!-- Jquery, Popper, Bootstrap -->
+<script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="./assets/js/popper.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+
+<!-- Slick-slider , Owl-Carousel ,slick-nav -->
+<script src="./assets/js/owl.carousel.min.js"></script>
+<script src="./assets/js/slick.min.js"></script>
+<script src="./assets/js/jquery.slicknav.min.js"></script>
+
+<!-- One Page, Animated-HeadLin, Date Picker -->
+<script src="./assets/js/wow.min.js"></script>
+<script src="./assets/js/animated.headline.js"></script>
+<script src="./assets/js/jquery.magnific-popup.js"></script>
+<script src="./assets/js/gijgo.min.js"></script>
+
+<!-- Nice-select, sticky,Progress -->
+<script src="./assets/js/jquery.nice-select.min.js"></script>
+<script src="./assets/js/jquery.sticky.js"></script>
+<script src="./assets/js/jquery.barfiller.js"></script>
+
+<!-- counter , waypoint,Hover Direction -->
+<script src="./assets/js/jquery.counterup.min.js"></script>
+<script src="./assets/js/waypoints.min.js"></script>
+<script src="./assets/js/jquery.countdown.min.js"></script>
+<script src="./assets/js/hover-direction-snake.min.js"></script>
+
+<!-- contact js -->
+<script src="./assets/js/contact.js"></script>
+<script src="./assets/js/jquery.form.js"></script>
+<script src="./assets/js/jquery.validate.min.js"></script>
+<script src="./assets/js/mail-script.js"></script>
+<script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+
+<!-- Jquery Plugins, main Jquery -->
+<script src="./assets/js/plugins.js"></script>
+<script src="./assets/js/main.js"></script>
+
+</body>
+</html>

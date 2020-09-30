@@ -1,0 +1,81 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+<div th:fragment="navigation">
+    <div class="header-area ">
+        <div class="main-header header-sticky">
+            <div class="container-fluid">
+                <div class="menu-wrapper d-flex align-items-center justify-content-between">
+                    <div class="header-left d-flex align-items-center">
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a th:href="@{/}"><img src="../assets/img/logo/logo.png" alt=""></a>
+                        </div>
+                        <!-- Main-menu -->
+                        <div class="main-menu  d-none d-lg-block">
+                            <nav>
+                                <ul id="navigation">
+                                    <li><a th:href="@{/}">Home</a></li>
+                                    <li><a>Shop</a>
+                                        <ul class="submenu">
+                                            <li><a th:href="@{/Phones}">Phone</a></li>
+                                            <li><a th:href="@{/Tivi}">TV</a></li>
+                                            <li><a th:href="@{/Clocks}">Clock</a></li>
+                                            <li><a th:href="@{/Laptops}">Laptop</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a th:href="@{/bills}">Shopping History</a></li>
+                                    <li><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/stock}">Stock</a></li>
+                                    <li><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/listUser}">User</a></li>
+                                    <li><a th:href="@{/contact}">Contact</a></li>
+                                    <li><a>More</a>
+                                        <ul class="submenu">
+                                            <li><a sec:authorize="isAuthenticated()" href="/user_home"> <span class="icon-user"></span>
+                                                <span name="name">User Details</span></a>
+                                            </li>
+                                            <li><a th:href="@{/login}">Login</a></li>
+                                            <li>
+                                                <form th:action="@{/logout}" method="post">
+                                                    <input type="submit" value="logout">
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="header-right1 d-flex align-items-center">
+                        <!-- Social -->
+                        <div class="header-social d-none d-md-block">
+                            <a href="https://www.instagram.com/dong190699/?hl=vi"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100008376580021"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://github.com/nguyentiendong99"><i class="fab fa-github"></i></a>
+                        </div>
+                        <!-- Search Box -->
+                        <div class="search d-none d-md-block">
+                            <ul class="d-flex align-items-center">
+                                <li class="mr-15">
+                                    <div class="nav-search search-switch">
+                                        <i class="ti-search"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="card-stor">
+                                        <a th:href="@{/cart}">
+                                            <img src="../assets/img/gallery/card.svg" alt="">
+                                            <span>[[${quantity}]]</span>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Mobile Menu -->
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

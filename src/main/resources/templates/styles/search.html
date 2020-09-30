@@ -1,0 +1,13 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+
+<div th:fragment="search">
+    <div class="search-model-box">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-btn">+</div>
+            <form th:action="@{/search}" method="get" class="search-model-form">
+                <input name="keyword" type="text" id="search-input" placeholder="Searching key.....">
+            </form>
+        </div>
+    </div>
+</div>
